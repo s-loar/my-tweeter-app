@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
   # GET /tweets or /tweets.json
   def index
     @tweets = Tweet.all
+    @tweet = Tweet.new
   end
 
   # GET /tweets/1 or /tweets/1.json
@@ -51,9 +52,9 @@ class TweetsController < ApplicationController
 
   # DELETE /tweets/1 or /tweets/1.json
   def destroy
-    @tweet.destroy
+    @tweet.update!(deleted_at: Time.now.utc)
     respond_to do |format|
-      format.html { redirect_to tweets_url, notice: "Tweet was successfully destroyed." }
+      format.html { redirect_to tweets_url, notice: "Tweet was successfully deleted." }
       format.json { head :no_content }
     end
   end
