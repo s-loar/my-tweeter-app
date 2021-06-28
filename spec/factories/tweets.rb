@@ -2,8 +2,12 @@
 
 FactoryBot.define do
   factory :tweet do
-    body { "MyText" }
+    body { Faker::Quote.robin.slice(0, 240) }
     liked_count { 1 }
-    deleted_at { "2021-06-28 10:54:51" }
+    deleted_at { nil }
+  end
+
+  trait :with_deleted do
+    deleted_at { 1.day.ago }
   end
 end
