@@ -3,15 +3,6 @@
 <h1>Tweets</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Liked count</th>
-      <th>Deleted at</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
@@ -27,5 +18,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Tweet', new_tweet_path %>

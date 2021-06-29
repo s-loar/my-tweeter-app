@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root :to => 'static#index'
+  root :to => 'tweets#index'
 
   resources :tweets
 

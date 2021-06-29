@@ -10,10 +10,5 @@
   <%= @tweet.liked_count %>
 </p>
 
-<p>
-  <strong>Deleted at:</strong>
-  <%= @tweet.deleted_at %>
-</p>
-
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>
