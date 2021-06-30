@@ -114,8 +114,6 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.11.7-x86_64-linux)
-      racc (~> 1.4)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -239,7 +237,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
-  x86_64-linux-musl
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
@@ -260,6 +257,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   shoulda-matchers
   spring
+  stimulus-rails (~> 0.2.4)
   tzinfo-data
   web-console (>= 4.1.0)
   webdrivers (~> 4.6)

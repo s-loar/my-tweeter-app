@@ -28,10 +28,11 @@ class TweetsController < ApplicationController
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: "Tweet was successfully created." }
+        format.html { redirect_to tweet_url, notice: "Tweet was successfully created." }
         format.json { render :show, status: :created, location: @tweet }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@tweet, partial: "tweets/form", locals: { tweet: @tweet}) }
+        format.html { render :new }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +45,7 @@ class TweetsController < ApplicationController
         format.html { redirect_to @tweet, notice: "Tweet was successfully updated." }
         format.json { render :show, status: :ok, location: @tweet }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
@@ -67,6 +68,6 @@ class TweetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tweet_params
-      params.require(:tweet).permit(:body, :liked_count, :deleted_at)
+      params.require(:tweet).permit(:body, :liked_count)
     end
 end
