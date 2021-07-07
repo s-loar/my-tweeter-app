@@ -21,19 +21,19 @@ Things you may want to cover:
 
 * Useful Docker commands
 
-build the image--
+build the image--  
 docker build --tag my-tweeter-app .
 
-bring up the containers--
+bring up the containers--  
 docker-compose up
 
 Connect to the database server within shell--
 docker exec -it my-tweeter-app_db_1 psql -U postgres
 
-List docker processes running--
+List docker processes running--  
 docker ps
 
-Get more information, like the IP, of a container by its id--
+Get more information, like the IP, of a container by its id--  
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 0cd7670dfbf3
 
 * ...
